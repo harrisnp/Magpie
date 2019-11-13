@@ -31,16 +31,31 @@ public class Magpie2 {
 	 */
 	public String getResponse(String statement) {
 		String response = "";
-		if (statement.indexOf("no") >= 0) {
+		if (statement.trim().length() <= 0) {
+			response = "Ask me anything. Try - I have a Brother.";
+		} else if (statement.indexOf("no") >= 0) {
 			response = "Why so negative?";
 		} else if (statement.indexOf("mother") >= 0
 				|| statement.indexOf("father") >= 0
 				|| statement.indexOf("sister") >= 0
 				|| statement.indexOf("brother") >= 0) {
 			response = "Tell me more about your family.";
-		} else {
-			response = getRandomResponse();
+		} else if (statement.indexOf("dog") >= 0
+				|| statement.indexOf("cat") >= 0) {
+			response = "Tell me more about your pets.";
+		} else if (statement.indexOf("Mr. Padjen") >= 0){
+			response = "He sounds like a good teacher.";		
+		} else if (statement.indexOf("Donald Trump") >= 0) {
+			response = "Donald Trump is the current President of the United States.";
+		} else if (statement.indexOf("Happy") >= 0) {
+			response = "I am happy today too!";
+		} else if (statement.indexOf("Ford") >= 0) {
+			response = "Ford is an Automobile company.";
 		}
+		
+		else {
+			response = getRandomResponse();
+		} 
 		return response;
 	}
 
